@@ -22,7 +22,7 @@ export default class Hello extends Component {
 	render() {
 		return (
 			<div>
-				Hello! <br /> { this.state.count } e22
+				Hello! <br /> { this.state.count }
 			</div>
 		)
 	}

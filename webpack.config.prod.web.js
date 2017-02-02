@@ -6,12 +6,10 @@ import baseConfig from './webpack.config'
 export default merge(baseConfig, {
 	devtool: 'cheap-module-source-map',
 	plugins: [
-		new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false
-			}
-		}),
-		new webpack.optimize.AggressiveMergingPlugin()
+		new webpack.optimize.AggressiveMergingPlugin(),
+		new webpack.LoaderOptionsPlugin({
+			minimize: true,
+			debug: false
+		})
 	]
 })

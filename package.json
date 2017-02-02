@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "React + Flow + Webpack Boilerplate",
   "scripts": {
-    "build": "NODE_ENV=production node -r babel-register node_modules/.bin/webpack --config webpack.config.prod.js -p --progress --profile --colors; npm run zip",
-    "start": "NODE_ENV=development PORT=3002 node -r babel-register node_modules/.bin/webpack-dev-server --content-base dist/ --hot --inline --progress --profile --colors",
+    "clear-dist": "rm -rf dist/*",
+    "build-web": "npm run clear-dist; NODE_ENV=production node -r babel-register node_modules/.bin/webpack --config webpack.config.prod.web.js -p --progress --profile --colors",
+    "build-node": "npm run clear-dist; NODE_ENV=production node -r babel-register node_modules/.bin/webpack --config webpack.config.prod.node.js -p --progress --profile --colors",
+    "start": "npm run clear-dist; NODE_ENV=development PORT=3002 node -r babel-register node_modules/.bin/webpack-dev-server --inline",
     "flow-typed": "./node_modules/.bin/flow-typed install"
   },
   "author": {
@@ -37,10 +39,12 @@
     "flow-bin": "^0.38.0",
     "flow-typed": "^2.0.0",
     "html-webpack-plugin": "2.24.1",
+    "react-hot-loader": "3.0.0-beta.6",
     "style-loader": "^0.13.0",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "2.1.0-beta.0",
     "webpack-merge": "^2.4.0",
-    "write-file-webpack-plugin": "3.4.2"
+    "write-file-webpack-plugin": "3.4.2",
+    "webpack-node-externals": "^1.5.4"
   }
 }

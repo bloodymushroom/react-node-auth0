@@ -12,42 +12,55 @@ if (fileSystem.existsSync(secretsPath)) {
 	alias.secrets = secretsPath
 }
 
+const port = process.env.PORT || 8080
+const hotReload = [
+	'react-hot-loader/patch',
+	`webpack-dev-server/client?http://localhost:${ port }`,
+	'webpack/hot/only-dev-server'
+]
+const outputPath = path.join(__dirname, 'dist')
+const publicPath = '/dist'
+
 module.exports = {
 	devtool: 'inline-source-map',
 	entry: {
-		index: path.join(__dirname, 'src', 'js', 'index.js')
+		index: hotReload.concat(path.join(__dirname, 'src', 'js', 'index.js'))
 	},
 	devServer: {
-		outputPath: path.join(__dirname, './dist'),
-		port: process.env.PORT || 8080
+		outputPath,
+		contentBase: outputPath,
+		port,
+		publicPath,
+		hot: true
 	},
 	output: {
-		path: path.join(__dirname, 'dist'),
-		filename: '[name].bundle.js'
+		path: outputPath,
+		filename: '[name].bundle.js',
+		publicPath
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.js$/,
-				loader: 'babel-loader',
+				use: ['babel-loader'],
 				exclude: /node_modules/,
 			},
 			{
 				test: /\.json$/,
-				loader: 'json-loader'
+				use: ['json-loader']
 			},
 			{
 				test: /\.css$/,
-				loader: 'style!css?modules',
+				use: ['style-loader', 'css-loader?modules']
 			}
 		]
 	},
 	resolve: {
-		alias,
-		extensions: ['', '.js', '.jsx', '.css']
+		alias
 	},
 	plugins: [
-		// expose and write the allowed env vars on the compiled bundle
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NamedModulesPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': {
 				NODE_ENV: JSON.stringify(process.env.NODE_ENV),

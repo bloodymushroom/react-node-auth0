@@ -6,7 +6,11 @@
   ],
   "env": {
     "development": {
-      "presets":["react-hmre"]
+      "plugins": [
+        "react-hot-loader/babel"
+        // Enables React code to work with HMR.
+      ],
+      "presets": ["react-hmre"]
     }
   }
 }
