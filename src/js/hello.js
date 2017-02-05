@@ -1,8 +1,16 @@
 // @flow
 import React, { Component } from 'react'
 
+type Props = {}
+type State = {
+	count: number
+}
+
 export default class Hello extends Component {
-	constructor(props) {
+	props: Props
+	state: State
+
+	constructor(props: Props) {
 		super(props)
 
 		this.state = {
