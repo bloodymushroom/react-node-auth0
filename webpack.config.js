@@ -19,7 +19,7 @@ const hotReload = [
 	'webpack/hot/only-dev-server'
 ]
 const outputPath = path.join(__dirname, 'dist')
-const publicPath = '/dist'
+const publicPath = '/'
 
 module.exports = {
 	devtool: 'inline-source-map',
