@@ -24,6 +24,10 @@ export default class Hello extends Component {
 		})
 	}
 
+	test() {
+		return 0
+	}
+
 	componentDidMount() {
 		setInterval(this.incrementCount.bind(this), 500)
 	}

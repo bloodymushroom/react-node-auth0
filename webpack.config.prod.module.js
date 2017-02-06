@@ -1,8 +1,7 @@
 import webpack from 'webpack'
 import path from 'path'
 import fileSystem from 'fs'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import WriteFilePlugin from 'write-file-webpack-plugin'
+import nodeExternals from 'webpack-node-externals'
 
 const alias = {}
 
@@ -12,31 +11,19 @@ if (fileSystem.existsSync(secretsPath)) {
 	alias.secrets = secretsPath
 }
 
-const port = process.env.PORT || 8080
-const hotReload = [
-	'react-hot-loader/patch',
-	`webpack-dev-server/client?http://localhost:${ port }`,
-	'webpack/hot/only-dev-server'
-]
 const outputPath = path.join(__dirname, 'dist')
-const publicPath = '/'
 
 export default {
-	devtool: 'inline-source-map',
+	devtool: 'cheap-module-source-map',
+	target: 'node',
+	externals: [nodeExternals()],
 	entry: {
-		index: hotReload.concat(path.join(__dirname, 'src', 'js', 'index.js'))
-	},
-	devServer: {
-		outputPath,
-		contentBase: outputPath,
-		port,
-		publicPath,
-		hot: true
+		index: path.join(__dirname, 'src', 'js', 'hello.js')
 	},
 	output: {
 		path: outputPath,
 		filename: '[name].bundle.js',
-		publicPath
+		libraryTarget: 'commonjs2'
 	},
 	module: {
 		rules: [
@@ -59,7 +46,6 @@ export default {
 		alias
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': {
@@ -67,11 +53,10 @@ export default {
 				PORT: JSON.stringify(process.env.PORT)
 			}
 		}),
-		new HtmlWebpackPlugin({
-			template: path.join(__dirname, 'src', 'index.html'),
-			filename: 'index.html',
-			chunks: ['index']
-		}),
-		new WriteFilePlugin()
+		new webpack.optimize.AggressiveMergingPlugin(),
+		new webpack.LoaderOptionsPlugin({
+			minimize: true,
+			debug: false
+		})
 	]
 }

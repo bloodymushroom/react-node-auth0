@@ -1,17 +1,12 @@
 import webpack from 'webpack'
 import path from 'path'
-import fileSystem from 'fs'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import WriteFilePlugin from 'write-file-webpack-plugin'
+import parentPackageJson from '../package.json'
 
-const alias = {}
+const packageEntryPoint = path.resolve('../src/js/hello.js')
 
-const secretsPath = path.join(__dirname, `secrets.${ process.env.NODE_ENV }.js`)
-
-if (fileSystem.existsSync(secretsPath)) {
-	alias.secrets = secretsPath
-}
-
+const packageName = parentPackageJson.name
 const port = process.env.PORT || 8080
 const hotReload = [
 	'react-hot-loader/patch',
@@ -56,7 +51,9 @@ export default {
 		]
 	},
 	resolve: {
-		alias
+		alias: {
+			[packageName]: packageEntryPoint
+		}
 	},
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
