@@ -33,7 +33,7 @@
     - Note: The package name is taken from the parent `package.json`
 - Import your parent package normally in your workbench
     - See `workbench/src/js/index.js` for an example
-- Ensure the parent `package.json` main key is pointing to the bundled .js file in the dist folder (after building)
+- Ensure the parent `package.json` main key is pointing to the bundled .js file in the parent dist folder (after building)
 
 ### Usage
 
