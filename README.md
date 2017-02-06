@@ -2,7 +2,7 @@
 
 ## Installation
 
-1. `npm install` or `yarn install`
+- `npm install` or `yarn install`
 
 ## Using the Boilerplate to develop Web Apps (Dependecies included in bundle)
 
