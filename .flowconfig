@@ -1,7 +1,10 @@
 [ignore]
 .*/node_modules/fbjs/.*
+.*/workbench/dist/.*
+.*/workbench/node_modules/.*
 .*/dist/.*
 .*/git/.*
+.*\.lock
 
 [include]
 
