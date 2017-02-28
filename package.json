@@ -9,6 +9,7 @@
     "build-node": "npm run clear-dist; NODE_ENV=production node -r babel-register node_modules/.bin/webpack --config webpack.config.prod.node.js -p --progress --profile --colors",
     "build-module": "npm run clear-dist; NODE_ENV=production node -r babel-register node_modules/.bin/webpack --config webpack.config.prod.module.js -p --progress --profile --colors",
     "start": "npm run clear-dist; NODE_ENV=development PORT=3002 node -r babel-register node_modules/.bin/webpack-dev-server --inline",
+    "wstart": "cd workbench; npm start",
     "flow-typed": "./node_modules/.bin/flow-typed install"
   },
   "author": {

@@ -25,7 +25,6 @@
 1. Switch to the workbench directory
 2. `npm install` or `yarn install`
 3. Follow the configuration instructions below (the Workbench will run out of the box)
-4. `npm run start`
 
 ### Configuration
 
@@ -39,4 +38,6 @@
 
 - Develop in the `src` directory
 - Use `npm run build-module` for packing
+- Use `npm wstart` in parent directory to start the dev server, or
+- Change into the workbench directory and use `npm start` to start the dev server
     - Note: Don't run `npm run start` from the parent diretory, as your module most likely wont have the correct html files to render on the page
