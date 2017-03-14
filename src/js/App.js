@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import store from './mobx/Store.js'
 
+@observer
 class App extends Component {
 
 	constructor(props: Props) {
@@ -21,6 +22,10 @@ class App extends Component {
 		})
 	}
 
+	incrementNumber() {
+		store.incrementNumber();
+	}
+
 	componentDidMount() {
 		setInterval(this.incrementCount.bind(this), 500)
 	}
@@ -30,8 +35,8 @@ class App extends Component {
 			<div>
 				This this count is increasing, react is set up! <br /> { this.state.count }
 				<br/>
-				<button onClick={store.incrementNumber}>Click to increase below</button>
-				<br />If this increases on click, mobx is set up: {store.number} 
+				<button onClick={ this.incrementNumber }>Click to increase below</button>
+				<br />If this increases on click, mobx is set up: { store.number } 
 			</div>
 		)
 	}
