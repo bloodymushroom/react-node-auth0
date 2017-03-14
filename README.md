@@ -1,4 +1,9 @@
-# React Flow Webpack Boilerplate
+# React Mobx Webpack Boilerplate
+
+## About
+
+- Boilerplate for React - Mobx - Webpack
+- Hot reload, build for dev and production
 
 ## Installation
 
