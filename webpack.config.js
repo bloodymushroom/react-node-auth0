@@ -12,26 +12,13 @@ if (fileSystem.existsSync(secretsPath)) {
 	alias.secrets = secretsPath
 }
 
-const port = process.env.PORT || 8080
-const hotReload = [
-	'react-hot-loader/patch',
-	`webpack-dev-server/client?http://localhost:${ port }`,
-	'webpack/hot/only-dev-server'
-]
 const outputPath = path.join(__dirname, 'dist')
 const publicPath = '/'
 
 export default {
 	devtool: 'inline-source-map',
 	entry: {
-		index: hotReload.concat(path.join(__dirname, 'src', 'js', 'index.js'))
-	},
-	devServer: {
-		outputPath,
-		contentBase: outputPath,
-		port,
-		publicPath,
-		hot: true
+		index: path.join(__dirname, 'src', 'js', 'index.js')
 	},
 	output: {
 		path: outputPath,
@@ -59,7 +46,6 @@ export default {
 		alias
 	},
 	plugins: [
-		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': {
