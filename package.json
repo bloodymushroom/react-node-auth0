@@ -8,13 +8,8 @@
     "build-web": "npm run clear-dist; NODE_ENV=production node -r babel-register node_modules/.bin/webpack --config webpack.config.prod.web.js -p --progress --profile --colors",
     "build-node": "npm run clear-dist; NODE_ENV=production node -r babel-register node_modules/.bin/webpack --config webpack.config.prod.node.js -p --progress --profile --colors",
     "build-module": "npm run clear-dist; NODE_ENV=production node -r babel-register node_modules/.bin/webpack --config webpack.config.prod.module.js -p --progress --profile --colors",
-<<<<<<< HEAD
-    "start": "npm run clear-dist; NODE_ENV=development PORT=3002 node -r babel-register node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --inline",
-    "wstart": "cd workbench; npm start",
-=======
     "start": "npm run clear-dist; NODE_ENV=development PORT=3002 node -r babel-register node_modules/.bin/webpack-dev-server --inline",
     "wstart": "cd workbench; npm start"
->>>>>>> added mobx actions
   },
   "author": {
     "name": "Emm",
