@@ -1,0 +1,40 @@
+// @flow
+import React, { Component } from 'react'
+
+// mobx
+import { observer } from 'mobx-react'
+import store from './mobx/Store.js'
+
+class App extends Component {
+
+	constructor(props: Props) {
+		super(props)
+
+		this.state = {
+			count: 0
+		}
+	}
+
+	incrementCount() {
+		this.setState({
+			count: ++this.state.count
+		})
+	}
+
+	componentDidMount() {
+		setInterval(this.incrementCount.bind(this), 500)
+	}
+
+	render() {
+		return (
+			<div>
+				This this count is increasing, react is set up! <br /> { this.state.count }
+				<br/>
+				<button onClick={store.incrementNumber}>Click to increase below</button>
+				<br />If this increases on click, mobx is set up: {store.number} 
+			</div>
+		)
+	}
+}
+
+export default App;

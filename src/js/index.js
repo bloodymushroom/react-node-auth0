@@ -2,9 +2,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import Hello from './hello'
+import App from './App'
 
 render(
-	<Hello />,
+	<App />,
 	window.document.getElementById('app-container')
 )
