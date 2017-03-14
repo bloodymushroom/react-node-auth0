@@ -5,3 +5,4 @@ secrets.*.js
 flow-typed/
 zip/
 *.log
+.DS_Store

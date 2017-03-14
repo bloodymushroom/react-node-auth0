@@ -23,8 +23,7 @@
 		"react/jsx-curly-spacing": "off",
 		"jsx-quotes": "off",
 		"react/prefer-stateless-function": "off",
-		"flowtype-errors/show-errors": 2,
-		"indent": ["error", "tab"],
+		"indent": ["error", "spaces"],
 		"no-tabs": "off",
 		"semi": "off",
 		"react/jsx-indent": "off",
@@ -39,8 +38,6 @@
 		"arrow-body-style": "off"
 	},
 	"plugins": [
-		"flowtype",
-		"flowtype-errors",
 		"import",
 		"promise",
 		"react"

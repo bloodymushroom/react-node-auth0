@@ -1,7 +1,7 @@
 {
-  "name": "react-flow-webpack-bp",
+  "name": "react-mobx-webpack-bp",
   "version": "1.0.0",
-  "description": "React + Flow + Webpack Boilerplate",
+  "description": "React + Mobx + Webpack Boilerplate",
   "main": "dist/index.bundle.js",
   "scripts": {
     "clear-dist": "rm -rf dist/*",
@@ -10,14 +10,15 @@
     "build-module": "npm run clear-dist; NODE_ENV=production node -r babel-register node_modules/.bin/webpack --config webpack.config.prod.module.js -p --progress --profile --colors",
     "start": "npm run clear-dist; NODE_ENV=development PORT=3002 node -r babel-register node_modules/.bin/webpack-dev-server --config webpack.config.dev.js --inline",
     "wstart": "cd workbench; npm start",
-    "flow-typed": "./node_modules/.bin/flow-typed install"
   },
   "author": {
-    "name": "Eric Yang",
-    "email": "eeyang92@gmail.com"
+    "name": "Emm",
+    "email": "emmeline.lan@gmail.com"
   },
   "license": "MIT",
   "dependencies": {
+    "mobx": "^3.1.5",
+    "mobx-react": "^4.1.3",
     "react": "^15.3.2",
     "react-dom": "^15.3.2"
   },
@@ -25,6 +26,7 @@
     "babel-core": "^6.17.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.4",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-hmre": "^1.1.1",
@@ -39,15 +41,13 @@
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^6.9.0",
-    "flow-bin": "^0.38.0",
-    "flow-typed": "^2.0.0",
     "html-webpack-plugin": "2.24.1",
     "react-hot-loader": "3.0.0-beta.6",
     "style-loader": "^0.13.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "2.1.0-beta.0",
     "webpack-merge": "^2.4.0",
-    "write-file-webpack-plugin": "3.4.2",
-    "webpack-node-externals": "^1.5.4"
+    "webpack-node-externals": "^1.5.4",
+    "write-file-webpack-plugin": "3.4.2"
   }
 }
