@@ -7,3 +7,4 @@ zip/
 *.log
 .DS_Store
 .env
+*/.secrets.json
