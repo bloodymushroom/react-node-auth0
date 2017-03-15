@@ -13,6 +13,8 @@ if (fileSystem.existsSync(secretsPath)) {
 }
 
 const outputPath = path.join(__dirname, 'dist')
+
+console.log('outputPath', outputPath);
 const publicPath = '/'
 
 export default {

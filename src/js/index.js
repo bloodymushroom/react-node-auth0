@@ -2,9 +2,10 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import App from './App'
+// root is the router
+import Root from './Root.js'
 
 render(
-	<App />,
+	<Root />,
 	window.document.getElementById('app-container')
 )

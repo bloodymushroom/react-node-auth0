@@ -6,3 +6,4 @@ flow-typed/
 zip/
 *.log
 .DS_Store
+.env
