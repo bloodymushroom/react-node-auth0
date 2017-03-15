@@ -20,9 +20,7 @@ for (const key in entries) {
 	}
 }
 
-console.log("in dev")
 const outputPath = baseConfig.output.path
-console.log('in dev', outputPath)
 const publicPath = baseConfig.output.publicPath
 
 devConfig.devServer = {
