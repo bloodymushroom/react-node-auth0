@@ -10,7 +10,9 @@ const hotReload = [
 ]
 
 const entries = baseConfig.entry
-const devConfig = {}
+const devConfig = {
+	entry: {}
+}
 
 for (const key in entries) {
 	if (Object.prototype.hasOwnProperty.call(entries, key)) {
