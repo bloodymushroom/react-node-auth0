@@ -3,12 +3,17 @@ import path from 'path'
 
 const router = express.Router();
 
-// these are all your protected routes that don't require a jwt from client
-
+// these are all your protected routes that do require a jwt from client
+// the request url will be from '/api', e.g. localhost/api/login
 
 router.get('/home', (req, res) => {
   console.log('got route')
-  res.send('got private route')
+  res.json('got private route')
+})
+
+router.get('/data', (req, res) => {
+  console.log('private login')
+  res.json('got private data')
 })
 
 router.post('/data', (req, res)=>{

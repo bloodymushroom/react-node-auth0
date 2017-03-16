@@ -32,10 +32,16 @@ const authCheck = jwt({
 });
 
 // server static files from dist folder
-app.use(express.static('dist'));
+// app.use(express.static('dist'));
+
+// error handling
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).json('Something broke!')
+})
 
 // use routes
-app.use('/', publicRoutes)
+app.use('/', express.static('dist'), publicRoutes)
 app.use('/api', authCheck, protectedRoutes)
 
 
